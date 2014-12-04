@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (C) NAVER <http://www.navercorp.com> 
+ * @file basic.sub_banner.html
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+-->
+<html lang="ko">
+<head>
+<!-- META -->
+<meta charset="utf-8">
+<meta name="Generator" content="XpressEngine">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=1100">
+<!-- TITLE -->
+<title>Basic Theme : XE Contest</title>
+<!-- CSS -->
+<link rel="stylesheet" href="../xe_common/xe.min.css">
+<link rel="stylesheet" href="./css/layout.basic.css">
+<link rel="stylesheet" href="./css/welcome.css">
+<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49314/XEIconv10/style.css">
+<!--[if lt IE 8]><link rel="stylesheet" href="../xe_icon/ie7/ie7.css"><![endif]-->
+<!-- JS -->
+<!--[if lt IE 9]><script src="../xe_common/jquery-1.x.min.js"></script><![endif]-->
+<!--[if gte IE 9]><!--><script src="../xe_common/jquery.min.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../xe_common/html5.js"></script><![endif]-->
+<script src="../xe_common/xe.min.js"></script>
+<script src="./js/layout.basic.js"></script>
+<script src="./js/colorset_test.js"></script>  
+</head>
+
+<!-- [D] [Color Set] 
+         default : 클래스 없음 
+         Grape Fruit : color_grape_fruit
+         Hot Pink : color_hot_pink               
+         Orchid : color_orchid
+         Blue Jeans : color_blue_jeans
+         Mint : color_mint
+         Sunflower : color_sunflower
+         Bitter Sweet : color_bitter_sweet
+         Java Coffee : color_java_coffee
+         Gray : color_gray
+         -->
+<body>
+<!-- [D] Fixed header를 위하여 클래스 fixed_header 추가 -->    
+<div class="container fixed_header">
+	<p class="skip"><a href="#content">메뉴 건너뛰기</a></p>
+    <div class="header_wrap">
+        <header class="header">
+            <h1>
+                <a href="basic.main.html" id="siteTitle">
+                    <img src="./img/logo.png" alt="XE Basic">
+                </a>
+            </h1>
+            <div class="side">
+                <ul>
+                <li class="click">
+                    <a href="#"><i class="xe-magnifier"></i><span class="blind">검색</span></a>
+                    <div class="ly ly_search">                   
+                        <!-- SEARCH -->
+                        <form action="get" class="search">
+                            <input type="hidden" name="vid" value="">
+                            <input type="hidden" name="mid" value="">
+                            <input type="hidden" name="act" value="IS">
+                            <input type="text" name="is_keyword" value="" required placeholder="검색" title="검색어 입력">
+                            <input type="submit" value="&#xe66d">
+                        </form>
+                        <!-- /SEARCH -->
+                        <span class="edge"></span>
+                    </div>
+                </li>
+                <!-- [D]회원이 관리자 권한을 가지고 있을 경우 노출  --> 
+                <li><a href="#"><i class="xe-tool"></i><span class="blind">관리</span></a></li> 
+                <li class="hover">
+                    <!-- before_login -->
+                    <!-- <a href="#" style="display:none"><span class="blind">로그인/회원가입</span></a>
+                    <div class="ly ly_login" style="display:none">
+                        <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div> -->
+                    <!-- /before_login -->
+                    
+                    <!-- after_login -->
+                    <!-- [D] 프로필 이미지를 등록하지 않았을 경우 기본 이미지 노출, alt 속성에는 프로필명 적용 -->  
+                    <a href="#" class="login_after"><img src="./img/ico_default.jpg" alt="OO님 프로필"></a>
+                    <div class="ly ly_login">
+                        <ul>
+                        <li><a href="#">회원정보 보기</a></li>
+                        <li><a href="#">스크랩 보기</a></li>
+                        <li><a href="#">저장함 보기</a></li>
+                        <li><a href="#">작성 글 보기</a></li>
+                        <li><a href="#">친구 보기</a></li>
+                        <li><a href="#">쪽지함 보기</a></li>
+                        <li class="logout"><a href="#">로그아웃</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div>
+                    <!-- /after_login -->
+                </li>    
+                </ul>
+                
+            </div>
+            <!-- GNB -->
+            <nav class="gnb" id="gnb">
+                <ul>
+                <li><a href="basic.main.html">HOME</a></li>
+                <li>
+                    <a href="#">컬러테마</a>
+                    <ul class="depth2">
+                    <li><a href="#">Royal Classic</a></li>
+                    <li><a href="#">Grape Fruit</a></li>
+                    <li><a href="#">Hot Pink</a></li>
+                    <li><a href="#">Orchid</a></li>
+                    <li><a href="#">Blue Jeans</a></li>
+                    <li><a href="#">Mint</a></li>
+                    <li><a href="#">Sunflower</a></li>
+                    <li><a href="#">Java Coffee</a></li>
+                    <li><a href="#">Gray</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">레이아웃</a>
+                    <ul class="depth2">
+                    <li><a href="basic.main.html">메인 레이아웃</a></li>
+                    <!-- [D]3depth 노출시 li에 클래스 divide 추가 및 2depth 메뉴명 <a>엘리멘트를 <span>엘리먼트로 변경 -->
+                    <li class="divide">
+                        <span>서브 레이아웃</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_full.html">풀컨텐츠</a></li>
+                        <li><a href="basic.sub.html">2단 좌측 LNB</a></li>
+                        <li><a href="basic.sub_right.html">2단 우측 LNB</a></li>
+                        </ul>
+                    </li>
+                    <li class="divide">
+                        <span>서브 타이틀</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_banner.html">빵조각 - 배너형</a></li>
+                        <li><a href="basic.sub_default.html">빵조각 - 기본형</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">로그인</a>
+                    <ul class="depth2">
+                    <li><a href="basic.login.html">로그인 일반</a></li>
+                    <li><a href="basic.login2.html">로그인 모달</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="basic.message.html">메시지</a>
+                </li>    
+                <li>
+                    <a href="basic.sub_license.html">라이선스</a>
+                </li>   
+                </ul>
+            </nav>
+		    <!-- /GNB -->
+        </header>
+    </div>
+	
+	<!-- VISUAL  -->
+	<!-- [D] 타이틀 영역에 백그라운 이미지 적용시 클래스 sub_img 추가 -->
+	<div class="visual sub sub_img">
+	    <!-- [D] 백그라운 이미지 적용 (디폴트 이미지 사이즈 1440x160) -->
+	    <span class="bg_img" style="background-image:url('./img/subtitle.png')"></span>
+        <span class="mask"></span>
+        <div class="sub_title">
+            <h1>빵조각 - 배너형</h1>
+            <div class="page_location">
+                <p>Yor are here:</p>
+                <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">레이아웃</a></li>
+                <li><a href="#">서브타이틀</a></li>
+                <li><a href="#">빵조각 - 배너형</a></li>
+                </ul>
+            </div>
+        </div>    
+	</div>
+	<!-- /VISUAL -->
+    
+    <!-- [D] 좌측 LNB(기본) : body sub
+                          우측 LNB : body sub right
+             LNB 미노출 : body sub no_lnb  -->
+	<div class="body sub">
+	    
+		<!-- LNB -->
+        <nav class="lnb">
+            <div class="top_thumb">
+                <img src="./img/img_top.png" width="222" height="200" alt="">
+            </div>         
+            <ul>
+            <li><a href="#">메인 레이아웃</a></li>
+            <!-- [D]3depth 노출시 li에 클래스 divide 추가 -->
+            <li class="divide">
+                <!-- [D]2depth 메뉴명은 사용자 설정에 따라 노출/미노출 가능 -->
+                <span>서브 레이아웃</span>
+                <ul>
+                <li><a href="#">풀컨텐츠</a></li>
+                <li><a href="#">2단 좌측 LNB</a></li>
+                <li><a href="#">2단 우측 LNB</a></li>                    
+                </ul>               
+            </li>
+            <li class="divide">
+                <span>서브 타이틀</span>
+                <ul>
+                <li class="active"><a href="#">빵조각 - 배너형</a></li>
+                <li><a href="#">빵조각 - 기본형</a></li>                    
+                </ul> 
+            </li>           
+            </ul>       
+        </nav>      
+        <!-- /LNB -->
+		
+		<!-- CONTENT -->
+		<div class="content" id="content">
+		    
+		    <!-- UI TEST -->
+            <!-- [D] 개발시 삭제 -->
+            <nav class="category">
+                <ul>
+                <li class="active"><a href="#">ALL</a></li>
+                <li><a href="#">CSS</a></li> 
+                <li><a href="#">HTML</a></li> 
+                <li><a href="#">DESIGN</a></li> 
+                <li><a href="#">VIDEO</a></li>    
+                </ul>
+            </nav>
+            <ul class="ui_test">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>   
+            </ul>
+            <!-- /UI TEST-->
+		    
+		</div>
+		<!-- /CONTENT -->
+	</div>
+
+    <div class="footer_wrap">
+        <footer class="footer">
+            <div class="f_info">
+                <p class="f_logo"><a href="#"><img src="./img/f_logo.png" alt="XE Basic"></a></p>
+                <ul class="lst_sns">
+                <li><a href="#"><i class="xe-facebook"></i><span class="blind">Facebook</span></a></li>
+                <li><a href="#"><i class="xe-twitter"></i><span class="blind">Twitter</span></a></li>
+                <li><a href="#"><i class="xe-linkedin"></i><span class="blind">Linkedin</span></a></li>
+                <li><a href="#"><i class="xe-github"></i><span class="blind">Github</span></a></li>
+                <li><a href="#"><i class="xe-social-rssfeed"></i><span class="blind">RSS Feed</span></a></li>
+                <li><a href="#"><i class="xe-google-plus"></i><span class="blind">Google plus</span></a></li>
+                </ul>
+                <p class="site_name">XpressEngine Contest Online<br><a href="#">www.xpressengine.com</a></p>
+                <p class="copyright">Copyright @ <a href="#">NAVER Corp.</a><br>Supported by <a href="#">D2 Program</a>.</p>
+            </div>
+            <div class="f_info2">
+                <div class="site_map">
+                    <ul>
+                    <li>
+                        <a href="#">컬러테마</a>
+                        <ul>
+                        <li><a href="#">Royal Classic</a></li>
+                        <li><a href="#">Grape Fruit</a></li>
+                        <li><a href="#">Hot Pink</a></li>
+                        <li><a href="#">Orchid</a></li>
+                        <li><a href="#">Blue Jeans</a></li>
+                        <li><a href="#">Mint</a></li>
+                        <li><a href="#">Sunflower</a></li>
+                        <li><a href="#">Java Coffee</a></li>
+                        <li><a href="#">Gray</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">레이아웃</a>
+                        <ul>
+                        <li><a href="#">메인 레이아웃</a></li>
+                        <li><a href="#">서브 레이아웃</a></li>
+                        <li><a href="#">서브 타이틀</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">로그인</a>
+                        <ul>
+                        <li><a href="#">로그인 일반</a></li>
+                        <li><a href="#">로그인 모달</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">메시지</a>
+                    </li>
+                    <li>
+                        <a href="#">라이선스</a>
+                    </li>
+                    <!-- [D] 6번째 메뉴에 클래스 clear 추가 -->
+                    <li class="clear">
+                        <a href="#">6번째 메뉴(예시)</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="f_more_info">
+                    <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li><a href="#">운영규칙</a></li>
+                    <li><a href="#">이메일찾기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<a href="#" class="btn_top"><i class="xe-angle-up"><span class="blind">위로가기</span></i></a>
+</body>
+</html>

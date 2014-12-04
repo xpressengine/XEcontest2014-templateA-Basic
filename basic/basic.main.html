@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (C) NAVER <http://www.navercorp.com> 
+ * @file basic.main.html
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+-->
+<html lang="ko">
+<head>
+<!-- META -->
+<meta charset="utf-8">
+<meta name="Generator" content="XpressEngine">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=1140">
+<!-- TITLE -->
+<title>Basic Theme : XE Contest</title>
+<!-- CSS -->
+<link rel="stylesheet" href="../xe_common/xe.min.css">
+<link rel="stylesheet" href="./css/layout.basic.css">
+<link rel="stylesheet" href="./css/jquery.bxslider.css">
+<link rel="stylesheet" href="./css/camera.css">
+<link rel="stylesheet" href="./css/widget.basic.css">
+<link rel="stylesheet" href="./css/widgetstyle.basic.css">
+<link rel="stylesheet" href="./css/welcome.css">
+<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49314/XEIconv10/style.css">
+<!--[if lt IE 8]><link rel="stylesheet" href="../xe_icon/ie7/ie7.css"><![endif]-->
+<!-- JS -->
+<!--[if lt IE 9]><script src="../xe_common/jquery-1.x.min.js"></script><![endif]-->
+<!--[if gte IE 9]><!--><script src="../xe_common/jquery.min.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../xe_common/html5.js"></script><![endif]-->
+<script src="../xe_common/xe.min.js"></script>
+<script src="./js/jquery.bxslider.js"></script>
+<script src="./js/camera.js"></script>
+<script src="./js/jquery.easing.1.3.js"></script>
+<script src="./js/layout.basic.js"></script>
+<script src="./js/colorset_test.js"></script>
+<script>
+    jQuery(function($){
+        // main slide : camera show plugin 적용
+        $('.camera_wrap').camera({
+            height: '478px',
+            pagination: true,
+            thumbnails: false,
+            playPause: false,
+            loader: 'none',
+            fx: 'simpleFade',
+            time: 3000
+        });    
+    }); 
+</script>  
+</head>
+
+<!-- [D] [Color Set] 
+         default : 클래스 없음 
+         Grape Fruit : color_grape_fruit
+         Hot Pink : color_hot_pink               
+         Orchid : color_orchid
+         Blue Jeans : color_blue_jeans
+         Mint : color_mint
+         Sunflower : color_sunflower
+         Bitter Sweet : color_bitter_sweet
+         Java Coffee : color_java_coffee
+         Gray : color_gray
+         -->
+<body>
+<!-- [D] Fixed header를 위하여 클래스 fixed_header 추가 -->    
+<div class="container fixed_header">
+	<p class="skip"><a href="#content">메뉴 건너뛰기</a></p>
+    <div class="header_wrap">
+        <header class="header">
+            <h1>
+                <a href="basic.main.html" id="siteTitle">
+                    <img src="./img/logo.png" alt="XE Basic">
+                </a>
+            </h1>
+            <div class="side">
+                <ul>
+                <li class="click">
+                    <a href="#"><i class="xe-magnifier"></i><span class="blind">검색</span></a>
+                    <div class="ly ly_search">                   
+                        <!-- SEARCH -->
+                        <form action="get" class="search">
+                            <input type="hidden" name="vid" value="">
+                            <input type="hidden" name="mid" value="">
+                            <input type="hidden" name="act" value="IS">
+                            <input type="text" name="is_keyword" value="" required placeholder="검색" title="검색어 입력">
+                            <input type="submit" value="&#xe66d">
+                        </form>
+                        <!-- /SEARCH -->
+                        <span class="edge"></span>
+                    </div>
+                </li>
+                <!-- [D]회원이 관리자 권한을 가지고 있을 경우 노출  
+                <li><a href="#"><i class="xe-tool"></i><span class="blind">관리</span></a></li> -->
+                <li class="hover">
+                    <!-- before_login -->
+                    <a href="#"><i class="xe-user"></i><span class="blind">로그인/회원가입</span></a>
+                    <div class="ly ly_login">
+                        <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div>
+                    <!-- /before_login -->
+                    
+                    <!-- after_login -->
+                    <!-- [D] 프로필 이미지를 등록하지 않았을 경우 기본 이미지 노출, alt 속성에는 프로필명 적용 
+                    <a href="#" class="login_after"><img src="./img/ico_default.jpg" alt="OO님 프로필"></a>
+                    <div class="ly ly_login">
+                        <ul>
+                        <li><a href="#">회원정보 보기</a></li>
+                        <li><a href="#">스크랩 보기</a></li>
+                        <li><a href="#">저장함 보기</a></li>
+                        <li><a href="#">작성 글 보기</a></li>
+                        <li><a href="#">친구 보기</a></li>
+                        <li><a href="#">쪽지함 보기</a></li>
+                        <li class="logout"><a href="#">로그아웃</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div> -->
+                    <!-- /after_login -->
+                </li>    
+                </ul>
+                
+            </div>
+            <!-- GNB -->
+            <nav class="gnb" id="gnb">
+                <ul>
+                <li><a href="#">HOME</a></li>
+                <li>
+                    <a href="#">컬러테마</a>
+                    <ul class="depth2">
+                    <li><a href="#">Royal Classic</a></li>
+                    <li><a href="#">Grape Fruit</a></li>
+                    <li><a href="#">Hot Pink</a></li>
+                    <li><a href="#">Orchid</a></li>
+                    <li><a href="#">Blue Jeans</a></li>
+                    <li><a href="#">Mint</a></li>
+                    <li><a href="#">Sunflower</a></li>
+                    <li><a href="#">Java Coffee</a></li>
+                    <li><a href="#">Gray</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">레이아웃</a>
+                    <ul class="depth2">
+                    <li><a href="basic.main.html">메인 레이아웃</a></li>
+                    <!-- [D]3depth 노출시 li에 클래스 divide 추가 및 2depth 메뉴명 <a>엘리멘트를 <span>엘리먼트로 변경 -->
+                    <li class="divide">
+                        <span>서브 레이아웃</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_full.html">풀컨텐츠</a></li>
+                        <li><a href="basic.sub.html">2단 좌측 LNB</a></li>
+                        <li><a href="basic.sub_right.html">2단 우측 LNB</a></li>
+                        </ul>
+                    </li>
+                    <li class="divide">
+                        <span>서브 타이틀</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_banner.html">빵조각 - 배너형</a></li>
+                        <li><a href="basic.sub_default.html">빵조각 - 기본형</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">로그인</a>
+                    <ul class="depth2">
+                    <li><a href="basic.login.html">로그인 일반</a></li>
+                    <li><a href="basic.login2.html">로그인 모달</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="basic.message.html">메시지</a>
+                </li>    
+                <li>
+                    <a href="basic.sub_license.html">라이선스</a>
+                </li>    
+                </ul>
+            </nav>
+		    <!-- /GNB -->
+        </header>
+    </div>
+	
+	<!-- VISUAL  -->
+	<div class="visual main">
+        <div class="camera_wrap">
+            <div data-src="./img/imgslider_01.jpg">
+                <div class="camera_caption fadeIn">
+                    <h1>SHARING, PUBLISHING.<br>&amp; PLEASURE.</h1>
+                    <p>지식을 나누고 컨텐츠를 출판하며 즐거움을 함께합니다.</p>     
+                </div>
+            </div>
+            <div data-src="./img/imgslider_02.jpg">
+                <div class="camera_caption fadeIn">
+                    <h1>MAKING<br>WEB CULTURES</h1>
+                    <p>올바른 웹 문화를 지향합니다.</p>     
+                </div>
+            </div>
+            <div data-src="./img/imgslider_03.jpg">
+                <div class="camera_caption fadeIn">
+                    <h1>EVOLUTION &amp; INNOVATION<br>TOGETHER</h1>
+                    <p>함께 진화하고 혁신을 추구합니다.</p>     
+                </div>
+            </div>
+            <div data-src="./img/imgslider_04.jpg">
+                <div class="camera_caption fadeIn">
+                    <h1>CREATE A GOOD DESIGN WITH<br>THE POSSIILITY OF TECHNOLOGY</h1>
+                    <p>기술의 가능성을 발굴하고 좋은 디자인을 만들어 갑니다.</p>     
+                </div>
+            </div>
+        </div>
+	</div>
+	<!-- /VISUAL -->
+    
+    <!-- WelcomeXE_Contest  -->
+    <div class="welcomeXE_Contest">
+        <article>
+            <h1 class="accent_color">WELCOME XE CONTEST</h1>
+            <p>2014년도 XE CONTEST에 참여하신걸 진심으로 환영합니다.<br>참여자분들이 다양하고 손쉽게 활용할 수 있도록 제작된 XE Contest 기본 테마는 아래와 같은 특징과 기능을 가지고 있습니다.</p>
+            <section class="i1">
+                <img src="./img/img_welcome.jpg" width="346" height="346" alt="">
+                <h1>종이, 카드 메타포 디자인</h1>
+                <p>XEContest 테마 일반형은 는 Paper와 Card를 메타포로 합니다. 종이와 스티커, 카드 등의 프린트 디자인을 모티브로 하여 웹페이지의 이질감을 덜고 친숙하고 직관적인 UX를 제공합니다.</p>
+            </section>
+            <section class="i2">
+                <img src="./img/img_welcome2.jpg" width="346" height="346" alt="">
+                <h1>컬럼형 그리드 섹션</h1>
+                <p>XE 공모전 테마는 12컬럼으로 구성된 그리드 섹션을 적용할 수 있도록 가이드 페이지를 제공합니다. 이를 활용하여 위젯, 문서 페이지를 다양하고 손쉽게 구성할 수 있습니다. 또한 반응형 레이아웃으로 수정하기에 용이합니다.</p>
+            </section>
+            <section class="i3">
+                <img src="./img/img_welcome3.jpg" width="346" height="346" alt="">
+                <h1>확장형 컬러 테마</h1>
+                <p>XE 공모전 테마는 RGB 색상 값에 최적화된 12개의 기본 컬러 코드를 제공하며, 사용자가 손쉽게 컬러를 커스마이징할 수 있도록 source코드와 컬러 테마 가이드를 제공합니다.</p>
+            </section>
+            <section class="i4">
+                <img src="./img/img_welcome4.jpg" width="346" height="346" alt="">
+                <h1>XE 전용 아이콘폰트</h1>
+                <p>XE 개발 그룹에서 개발한 Iconfont를 적용하였습니다. 다양하고 확장성이 좋은 라인 아이콘들을 자신만의 UI Component에 쉽게 적용하여 사용할 수 있습니다.</p>
+            </section>
+            <section class="i5">
+                <img src="./img/img_welcome5.jpg" width="346" height="346" alt="">
+                <h1>간편한 레이어 슬라이더</h1>
+                <p>메인 레이아웃의 레이어 슬라이더와 게시판과 연동하는 이미지 슬라이더 위젯을 제공합니다. 간편하고 손쉬운 슬라이더 기능으로 콘텐츠를 손쉽게 노출할 수 있습니다.</p>
+            </section>
+            <section class="i6">
+                <img src="./img/img_welcome6.jpg" width="346" height="346" alt="">
+                <h1>다양한 UI 컴포넌트</h1>
+                <p>가장 보편적인 모듈, 위젯과 문서 스타일을 응용하여 손쉽게 활용할 수 있도록 개선된 UI 컴포넌트와 기본 가이드를 제공합니다. 커스터마이징하여 자신의 개성을 웹사이트에 표출해보세요.</p>
+            </section>
+        </article>
+    </div>
+    <!-- /WelcomeXE_Contest -->
+    
+	<div class="body main">
+		
+		<!-- CONTENT -->
+		<div class="content" id="content">
+            <div class="widget_page">
+                <h1 class="accent_color">BASIC WIDGET SYTLE</h1>
+                <p>게시판을 DB를 기반으로 한 메인페이지의 기본 위젯 스타일입니다.<br>리스트형, 웹진형, 블로그형, 갤러리형 위젯과 컨텐츠 슬라이더 위젯으로 구성되어 있습니다.</p>
+                <div class="xe-widget-wrapper" style="margin:0px 0px 0px 0px;border:1px solid rgb(221, 221, 221);width:351px;height:352px;float:left;background-color:rgb(250,250,250)">    
+                    <div class="simpleWidgetStyle">
+                        <h2>목록형 위젯</h2>
+                        <a href="#" class="widgetMoreLink"><i class="xe-plus"></i><span class="blind">더보기</span></a>
+                        <div style="*zoom:1;padding:0 0px 0px 0px !important;">
+                            <div class="widgetContainer">
+                                <ul class="widgetA">
+                                <li>
+                                    <a href="#">
+                                        <span class="title">[공지] XE Contest 공지사항 및 접수방법...</span>
+                                        <span class="date">1 day</span>
+                                        <div class="more_info">
+                                            <dl>
+                                            <dt><i class="xe-pencil"></i><span class="blind">글쓴이</span></dt>
+                                            <dd>XpressEngine</dd>
+                                            <dt><i class="xe-eye"></i><span class="blind">조회수</span></dt>
+                                            <dd>356</dd>
+                                            <dt><i class="xe-message-left-ellipsis"></i><span class="blind">댓글수</span></dt>
+                                            <dd>18</dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="title">[공지] XE Contest 공지사항 및 접수방법...</span>
+                                        <span class="date">2 day</span>
+                                        <div class="more_info">
+                                            <dl>
+                                            <dt><i class="xe-pencil"></i><span class="blind">글쓴이</span></dt>
+                                            <dd>XpressEngine</dd>
+                                            <dt><i class="xe-eye"></i><span class="blind">조회수</span></dt>
+                                            <dd>356</dd>
+                                            <dt><i class="xe-message-left-ellipsis"></i><span class="blind">댓글수</span></dt>
+                                            <dd>18</dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="title">[공지] XE Contest 공지사항 및 접수방법...</span>
+                                        <span class="date">1 week</span>
+                                        <div class="more_info">
+                                            <dl>
+                                            <dt><i class="xe-pencil"></i><span class="blind">글쓴이</span></dt>
+                                            <dd>XpressEngine</dd>
+                                            <dt><i class="xe-eye"></i><span class="blind">조회수</span></dt>
+                                            <dd>356</dd>
+                                            <dt><i class="xe-message-left-ellipsis"></i><span class="blind">댓글수</span></dt>
+                                            <dd>18</dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="title">XE Contest 공지사항 및 접수방법을 안...</span>
+                                        <span class="date">3 hrsy</span>
+                                        <div class="more_info">
+                                            <dl>
+                                            <dt><i class="xe-pencil"></i><span class="blind">글쓴이</span></dt>
+                                            <dd>XpressEngine</dd>
+                                            <dt><i class="xe-eye"></i><span class="blind">조회수</span></dt>
+                                            <dd>356</dd>
+                                            <dt><i class="xe-message-left-ellipsis"></i><span class="blind">댓글수</span></dt>
+                                            <dd>18</dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="title">XE Contest 공지사항 및 접수방법을 안...</span>
+                                        <span class="date">23 hrs</span>
+                                        <div class="more_info">
+                                            <dl>
+                                            <dt><i class="xe-pencil"></i><span class="blind">글쓴이</span></dt>
+                                            <dd>XpressEngine</dd>
+                                            <dt><i class="xe-eye"></i><span class="blind">조회수</span></dt>
+                                            <dd>356</dd>
+                                            <dt><i class="xe-message-left-ellipsis"></i><span class="blind">댓글수</span></dt>
+                                            <dd>18</dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xe-widget-wrapper" style="margin:0px 0px 0px 18px;border:1px solid rgb(221, 221, 221);width:727px;height:352px;float:left;background-color:rgb(250,250,250)">    
+                    <div class="simpleWidgetStyle">
+                        <h2>웹진형 위젯</h2>
+                        <a href="#" class="widgetMoreLink"><i class="xe-plus"></i><span class="blind">더보기</span></a>
+                        <div style="*zoom:1;padding:0 0px 0px 0px !important;">
+                            <div class="widgetContainer">
+                                <ul class="widgetZineA">
+                                <li>
+                                    <!-- [D] 사용자 설정에서 이미지 가로/세로 적용시 동일한 값 적용 -->
+                                    <div class="thumb_area" style="width:120px;height:100px">
+                                        <a href="#"><img src="./img/wg_thum-01.png" alt="" style="width:120px;height:100px"></a>
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. XE는...</p>
+                                        <!-- [D] 작성자/날짜 노출시 적용
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span> -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:120px;height:100px">
+                                        <a href="#"><img src="./img/wg_thum-02.png" alt="" style="width:120px;height:100px"></a>
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. XE는...</p>
+                                    </div>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xe-widget-wrapper" style="margin:18px 18px 0px 0px;border:1px solid rgb(221, 221, 221);width:539px;height:727px;float:left;background-color:rgb(250,250,250)">    
+                    <div class="simpleWidgetStyle">
+                        <h2>블로그형 위젯</h2>
+                        <a href="#" class="widgetMoreLink"><i class="xe-plus"></i><span class="blind">더보기</span></a>
+                        <div style="*zoom:1;padding:0 0px 0px 0px !important;">
+                            <div class="widgetContainer">
+                                <ul class="widgetBlog">
+                                <!-- [D] 사용자가 li 높이값을 일괄적으로 지정할 수 있도록 적용 -->    
+                                <li style="height:294px">
+                                    <!-- [D] 사용자 설정에서 이미지 가로/세로 적용시 동일한 값 적용 -->
+                                    <div class="thumb_area" style="width:238px;height:150px">
+                                        <img src="./img/blg_thum-01.png" alt="" style="width:238px;height:150px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <span class="hover_info">
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </span>  
+                                        </div>
+                                    </div>
+                                    <!-- [D] 사용자 설정에서 이미지 가로길이 적용시 동일한 너비값 적용 -->
+                                    <div class="cont_area" style="width:238px">
+                                        <!-- [D] 빵조각 설정시 노출 
+                                        <a href-"#" class="breadcrumb">세미나/이벤트</a> -->
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트...</a></h3>
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동....</p>
+                                    </div>
+                                </li>
+                                <li style="height:294px">
+                                    <div class="thumb_area" style="width:238px;height:150px">
+                                        <img src="./img/blg_thum-02.png" alt="" style="width:238px;height:150px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <span class="hover_info">
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </span>  
+                                        </div>
+                                    </div>
+                                    <div class="cont_area" style="width:238px">
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트...</a></h3>
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동....</p>
+                                    </div>
+                                </li>
+                                <li style="height:294px">
+                                     <div class="thumb_area" style="width:238px;height:150px">
+                                        <img src="./img/blg_thum-03.png" alt="" style="width:238px;height:150px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <span class="hover_info">
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </span>  
+                                        </div>
+                                    </div>
+                                    <div class="cont_area" style="width:238px">
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트...</a></h3>
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동....</p>
+                                    </div>
+                                </li>
+                                <li style="height:294px">
+                                    <div class="thumb_area" style="width:238px;height:150px">
+                                        <img src="./img/blg_thum-04.png" alt="" style="width:238px;height:150px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <span class="hover_info">
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </span>  
+                                        </div>
+                                    </div>
+                                    <div class="cont_area" style="width:238px">
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트...</a></h3>
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동....</p>
+                                    </div>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xe-widget-wrapper" style="margin:18px 0 0px 0px;border:1px solid rgb(221, 221, 221);width:539px;height:570px;float:left;background-color:rgb(250,250,250)">    
+                    <div class="simpleWidgetStyle">
+                        <h2>컨텐츠 슬라이더 위젯</h2>
+                        <a href="#" class="widgetMoreLink"><i class="xe-plus"></i><span class="blind">더보기</span></a>
+                        <div style="*zoom:1;padding:0 0px 0px 0px !important;">
+                            <div class="widgetContainer">
+                                <ul class="bxslider contents_slider">
+                                <li>
+                                    <div class="thumb_area">
+                                        <img src="./img/cont_thum.png" alt="">
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. 수상작은 오픈소스로 공개하여 널리 이용됨은 물론 오픈소스 프로젝트로 이어나가도록 기회를 열어둡니다.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area">
+                                        <img src="./img/cont_thum2.png" alt="">
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. 수상작은 오픈소스로 공개하여 널리 이용됨은 물론 오픈소스 프로젝트로 이어나가도록 기회를 열어둡니다.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area">
+                                        <img src="./img/cont_thum3.png" alt="">
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. 수상작은 오픈소스로 공개하여 널리 이용됨은 물론 오픈소스 프로젝트로 이어나가도록 기회를 열어둡니다.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area">
+                                        <img src="./img/cont_thum4.png" alt="">
+                                    </div>
+                                    <div class="cont_area">
+                                        <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                        <h3 class="title"><a href="#">XE Con 공지사항 및 제작리스트 안내</a></h3>
+                                        <p class="cont">XE는 오픈소스 프로젝트 활성화를 도모하고자 XE Extension(모듈, 애드온, 위젯, 레이아웃, 스킨 등) 및 XE 연동 프로그램 개발에 참여하여 함께 성장할 수 있는 대회를 열고 있습니다. 수상작은 오픈소스로 공개하여 널리 이용됨은 물론 오픈소스 프로젝트로 이어나가도록 기회를 열어둡니다.</p>
+                                    </div>
+                                </li>
+                                </ul>
+                                <script>
+                                jQuery(function($){ 
+                                     // 컨텐츠 슬라이더 : bxSlider plugin 적용                                                                     
+                                     $('.bxslider').bxSlider({
+                                        mode: 'horizontal',
+                                        speed: 200,
+                                        infiniteLoop: true,
+                                        pager: true,
+                                        hideControlOnEnd: true,
+                                        useCSS: false,
+                                        touchEnabled: true,
+                                        oneToOneTouch: true,
+                                      //  auto: true
+                                    });
+                                    $(".bxslider li img").eq(0).load(function() {
+                                        var imgHeight =  $(this).height();
+                                        $('.bx-pager').css('top',imgHeight - 26);
+                                        $('.bx-controls-direction').css('top',imgHeight/2 + 16);
+                                    });   
+                                });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xe-widget-wrapper" style="margin:18px 0 0px 0px;border:1px solid rgb(221, 221, 221);width:1098px;height:428px;float:left;background-color:rgb(250,250,250)">    
+                    <div class="simpleWidgetStyle">
+                        <h2>갤러리형 위젯</h2>
+                        <a href="#" class="widgetMoreLink"><i class="xe-plus"></i><span class="blind">더보기</span></a>
+                        <div style="*zoom:1;padding:0 0px 0px 0px !important;">
+                            <div class="widgetContainer">
+                                <ul class="widgetGalleryA">
+                                <li>
+                                    <!-- [D] 사용자 설정에서 이미지 가로/세로 적용시 동일한 값 적용 -->
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-01.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <!-- [D] 작성자/날짜 노출시 적용
+                                    <div class="cont_area">
+                                        <span class="author">by <a href="#">XE</a></span>
+                                        <span class="date">2014.11.08</span>
+                                    </div>  -->
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-02.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                     <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-03.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-04.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-05.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-06.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                     <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-07.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-08.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-09.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-10.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-11.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb_area" style="width:167px;height:152px">
+                                        <img src="./img/gall_thum-12.png" alt="" style="width:167px;height:152px">
+                                        <span class="mask"></span>
+                                        <div class="hover_info_wrap">
+                                            <div class="hover_info">
+                                                <h3 class="title"><a href="#">XE Contest 2014</a></h3>
+                                                <a href="#" class="breadcrumb">세미나, 이벤트</a>
+                                                <a href="#" class="btn_show"><i class="xe-plus"></i><span class="blind">썸네일 크게보기</span></a> <a href="#" class="btn_move"><i class="xe-angle-right"></i><span class="blind">바로가기</span></a>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </li>
+                                </ul>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- /CONTENT -->
+	</div>
+
+    <div class="footer_wrap">
+        <footer class="footer">
+            <div class="f_info">
+                <p class="f_logo"><a href="#"><img src="./img/f_logo.png" alt="XE Basic"></a></p>
+                <ul class="lst_sns">
+                <li><a href="#"><i class="xe-facebook"></i><span class="blind">Facebook</span></a></li>
+                <li><a href="#"><i class="xe-twitter"></i><span class="blind">Twitter</span></a></li>
+                <li><a href="#"><i class="xe-linkedin"></i><span class="blind">Linkedin</span></a></li>
+                <li><a href="#"><i class="xe-github"></i><span class="blind">Github</span></a></li>
+                <li><a href="#"><i class="xe-social-rssfeed"></i><span class="blind">RSS Feed</span></a></li>
+                <li><a href="#"><i class="xe-google-plus"></i><span class="blind">Google plus</span></a></li>
+                </ul>
+                <p class="site_name">XpressEngine Contest Online<br><a href="#">www.xpressengine.com</a></p>
+                <p class="copyright">Copyright @ <a href="#">NAVER Corp.</a><br>Supported by <a href="#">D2 Program</a>.</p>
+            </div>
+            <div class="f_info2">
+                <div class="site_map">
+                    <ul>
+                    <li>
+                        <a href="#">컬러테마</a>
+                        <ul>
+                        <li><a href="#">Royal Classic</a></li>
+                        <li><a href="#">Grape Fruit</a></li>
+                        <li><a href="#">Hot Pink</a></li>
+                        <li><a href="#">Orchid</a></li>
+                        <li><a href="#">Blue Jeans</a></li>
+                        <li><a href="#">Mint</a></li>
+                        <li><a href="#">Sunflower</a></li>
+                        <li><a href="#">Java Coffee</a></li>
+                        <li><a href="#">Gray</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">레이아웃</a>
+                        <ul>
+                        <li><a href="#">메인 레이아웃</a></li>
+                        <li><a href="#">서브 레이아웃</a></li>
+                        <li><a href="#">서브 타이틀</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">로그인</a>
+                        <ul>
+                        <li><a href="#">로그인 일반</a></li>
+                        <li><a href="#">로그인 모달</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">메시지</a>
+                    </li>
+                    <li>
+                        <a href="#">라이선스</a>
+                    </li>
+                    <!-- [D] 6번째 메뉴에 클래스 clear 추가 -->
+                    <li class="clear">
+                        <a href="#">6번째 메뉴(예시)</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="f_more_info">
+                    <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li><a href="#">운영규칙</a></li>
+                    <li><a href="#">이메일찾기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<a href="#" class="btn_top"><i class="xe-angle-up"><span class="blind">위로가기</span></i></a>
+</body>
+</html>

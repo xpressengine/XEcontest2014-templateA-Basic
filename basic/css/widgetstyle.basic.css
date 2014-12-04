@@ -1,0 +1,67 @@
+@charset "utf-8";
+/**
+ * Copyright (C) NAVER <http://www.navercorp.com>
+ * @file  widgetstyle.basic.css
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ **/
+
+.simpleWidgetStyle{overflow:hidden;position:relative;margin-bottom:20px}
+.simpleWidgetStyle h2{padding:26px 52px 19px 23px;font-size:20px;line-height:28px;font-weight:normal;color:#333}
+.simpleWidgetStyle a.widgetMoreLink{overflow:hidden;position:absolute;top:30px;right:24px;width:20px;height:20px;font-size:20px;line-height:20px;color:#999;text-align:center;text-decoration:none}
+
+/* Color set */
+/* Default - Royal Classic */
+.simpleWidgetStyle a.widgetMoreLink:hover{color:#3f51b5}
+
+/* Grape Fruit */
+.color_grape_fruit .simpleWidgetStyle a.widgetMoreLink:hover{color:#ed5565}
+
+/* Hot Pink */
+.color_hot_pink .simpleWidgetStyle a.widgetMoreLink:hover{color:#ff4081}
+
+/* Orchid */
+.color_orchid .simpleWidgetStyle a.widgetMoreLink:hover{color:#ab47bc}
+
+/* Blue Jeans */
+.color_blue_jeans .simpleWidgetStyle a.widgetMoreLink:hover{color:#455ede}
+
+/* Mint */
+.color_mint .simpleWidgetStyle a.widgetMoreLink:hover{color:#00bfa5}
+
+/* Sunflower */
+.color_sunflower .simpleWidgetStyle a.widgetMoreLink:hover{color:#f9a825}
+
+/* Bitter Sweet */
+.color_bitter_sweet .simpleWidgetStyle a.widgetMoreLink:hover{color:#ff684d}
+
+/* Java Coffee */
+.color_java_coffee .simpleWidgetStyle a.widgetMoreLink:hover{color:#795548}
+
+/* Gray */
+.color_gray .simpleWidgetStyle a.widgetMoreLink:hover{color:#e00032}

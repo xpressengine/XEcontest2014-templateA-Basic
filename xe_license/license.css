@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* incomms Web Standard part kdh 141120 */
+.license_content{padding:19px 21px 0}
+.license_content section{margin-bottom:94px}
+.license_content .lcs_tit{margin-bottom:34px;font-size:31px;color:#3f3f3f}
+.license_content .lcs_tit:after{content:"";display:block;width:40px;height:4px;margin-top:16px;background-color:#3f3f3f}
+.license_content .lcs_tit.v2:after{width:30px;margin-top:21px}
+.license_content .lcs_tit span{font-size:20px}
+.license_content .tit_txt{font-size:15px;color:#414141;line-height:28px}
+
+.license_content .lcs_spot .lcs_lst_area{margin-top:17px}
+.license_content .lcs_spot ul .lcs_lst{position:relative;overflow:hidden;height:79px;border-bottom:solid 1px #e0e0e0}
+.license_content .lcs_spot ul .lcs_lst:last-child{border:0}
+.license_content .lcs_spot ul .lcs_lst dl{display:table;height:79px}
+.license_content .lcs_spot ul .lcs_lst dl dt,.license_content .lcs_spot ul .lcs_lst dl dd{display:table-cell;vertical-align:middle}
+.license_content .lcs_spot ul .lcs_lst dl dt{width:180px;padding-right:25px;font-size:15px;font-weight:bold;color:#414141}
+.license_content .lcs_spot ul .lcs_lst dl .lst_name{width:95px;padding-right:25px}
+.license_content .lcs_spot ul .lcs_lst dl .lst_name a{font-size:20px;font-weight:bold;color:#f4a715}
+.license_content .lcs_spot ul .lcs_lst dl .lst_name a:hover{text-decoration:underline}
+.license_content .lcs_spot ul .lcs_lst dl .lst_txt{position:relative;width:420px;font-size:13px;line-height:18px;color:#747474}
+.license_content .lcs_spot ul .lcs_lst .move_btn{position:absolute;top:50%;right:0;margin-top:-15px;font-size:30px;color:#9d9d9d}
+.license_content .lcs_spot ul .lcs_lst .move_btn:hover{color:#f4a715}
+
+
+.license_content .lcs_ccl .lcs_tit{margin-bottom:45px}
+.license_content .lcs_ccl .tit_txt a{color:#25a599}
+.license_content .lcs_ccl .tit_txt a:hover{text-decoration:underline}
+.license_content .ccl_lst_area{overflow:hidden}
+.license_content .ccl_lst_area li{margin-top:49px}
+.license_content .ccl_lst_area li dl dt{margin-bottom:18px;font-size:15px;color:#f4a715}
+.license_content .ccl_lst_area li dl dd{font-size:13px;line-height:26px;color:#747474}
+.license_content .ccl_lst_area .ccl_lst2 dl dt{margin-bottom:14px}
+.license_content .ccl_lst_area .ccl_lst2 dd{overflow:hidden;padding:15px 0;border-bottom:solid 1px #e0e0e0}
+.license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_img{float:left;display:block;width:56px;height:56px;padding-top:6px;margin-right:32px}
+.license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt{float:left;display:inline-block;width:658px}
+.license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt strong{display:block;color:#414141}
+.license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt span{display:block}
+.license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt .txt_en{margin-top:18px}
+.license_content .ccl_lst_area .ccl_lst2 dd:last-child{border-bottom:0}
+.license_content .ccl_lst_area .ccl_lst2 dd:last-child .ccl_lst2_txt{width:100%}
+
+.license_content .ccl_lst_area .ccl_lst3 dd .lcs_generator{color:#25A599}
+.license_content .ccl_lst_area .ccl_lst3 dd .lcs_generator:hover{text-decoration:underline}
+.license_content .ccl_lst_area .ccl_lst3 ul{overflow:hidden;margin-top:27px}
+.license_content .ccl_lst_area .ccl_lst3 ul li{float:left;width:121px;margin:0 35px 0 0}
+.license_content .ccl_lst_area .ccl_lst3 ul li:last-child{margin-right:0}
+.license_content .ccl_lst_area .ccl_lst3 ul li .ccl_ico{display:block;width:119px;height:55px;border:solid 1px #e0e0e0;background:url(img/bg_ccbysa.png) 50% 50% no-repeat;text-indent:-9999px}
+.license_content .ccl_lst_area .ccl_lst3 ul li .btn_ccl_ico{display:block;width:99px;height:29px;margin:9px auto 0;border:solid 1px #f5be1b;border-radius: 15px 15px 15px 15px;-webkit-border-radius: 15px 15px 15px 15px;font-size:11px;line-height:29px;text-align:center;font-weight:bold;color:#f5be1b}
+.license_content .ccl_lst_area .ccl_lst3 ul .ccbysa_d .ccl_ico{background-image:url(img/bg_ccbysa_d.png)}
+.license_content .ccl_lst_area .ccl_lst3 ul .ccbysa_l .ccl_ico{background-image:url(img/bg_ccbysa_l.png)}
+.license_content .ccl_lst_area .ccl_lst3 ul .ccbysa_w .ccl_ico{background-image:url(img/bg_ccbysa_w.png);background-color:#9e9e9e}
+.license_content .ccl_lst_area .ccl_lst3 ul .ccbysa_all .ccl_ico{background:none;text-indent:0;text-align:center;line-height:55px;color:#414141}
+
+.license_content .ccl_lst_area li.v2 dl dd{margin-bottom:16px}
+.license_content .ccl_lst_area li.v2 dl dd strong{display:block}
+.license_content .ccl_lst_area li.v2 dl dd .ofl_txt_lst{overflow:hidden;margin-top:0}
+.license_content .ccl_lst_area li.v2 dl dd .ofl_txt_lst li{margin-top:20px}
+
+.license_content .lcs_lgpl .tit_txt a{color:#25a599}
+.license_content .lcs_lgpl .tit_txt a:hover{text-decoration:underline}
+
+.license_content .lcs_ofl .tit_txt a{color:#25a599}
+.license_content .lcs_ofl .tit_txt a:hover{text-decoration:underline}
+
+.license_content .lcs_Copyright{margin:0}
+.license_content .lcs_Copyright .tit_txt a{color:#25a599}
+.license_content .lcs_Copyright .tit_txt a:hover{text-decoration:underline}
+
+
+.content_wrap .license_content{padding:0}
+
+/* ≈∆«√∏¥C ∂Û¿ÃºæΩ∫ */
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst{border-color:#000}
+.ex_ct.ex_sub .license_content .lcs_tit:after{background-color:#000}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst2 dd{border-color:#000}
+.ex_ct.ex_sub .content .content_inn .inn_section2 .license_content{padding-bottom:19px}
+.ex_ct.ex_sub .license_content .lcs_tit{color:#000}
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst dl .lst_txt{color:#3d3d3d}
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst .move_btn{color:#3d3d3d}
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst .move_btn:hover{color:#f4c715}
+.ex_ct.ex_sub .license_content .lcs_ccl .tit_txt a{color:#006374}
+.ex_ct.ex_sub .license_content .tit_txt{color:#222}
+.ex_ct.ex_sub .license_content .ccl_lst_area li dl dd{color:#3a3a3a}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 ul li{margin-right:10px}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 ul li:last-child{margin-right:0}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 dd .lcs_generator{color:#006374}
+.ex_ct.ex_sub .license_content .lcs_lgpl .tit_txt a{color:#006374 }
+.ex_ct.ex_sub .license_content .lcs_ofl .tit_txt a{color:#006374}
+.ex_ct.ex_sub .license_content .lcs_Copyright .tit_txt a{color:#006374}
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst dl .lst_name a{color:#f4c715}
+.ex_ct.ex_sub .license_content .lcs_spot ul .lcs_lst .move_btn:hover{color:#f4c715}
+.ex_ct.ex_sub .license_content .ccl_lst_area li dl dt{color:#f4c715}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 ul li .btn_ccl_ico{border-color:#f4c715;color:#f4c715}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 ul li .btn_ccl_ico:hover{background-color:#f4c715;color:#fff}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt{width:550px}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst2 dl dt{margin-bottom:1px}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst2 dd .ccl_lst2_txt .txt_en{margin-top:15px}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst2 dd{padding:32px 0}
+.ex_ct.ex_sub .license_content .ccl_lst_area li{margin-top:26px}
+.ex_ct.ex_sub .license_content .ccl_lst_area .ccl_lst3 ul li .ccl_ico{border-color:#000}
+
+
+
+
+
+

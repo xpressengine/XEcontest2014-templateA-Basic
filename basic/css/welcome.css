@@ -1,0 +1,98 @@
+@charset "utf-8";
+/**
+ * Copyright (C) NAVER <http://www.navercorp.com>
+ * @file  welcome.css
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ **/
+
+.welcomeXE_Contest,.widget_page{overflow:hidden;padding:43px 0 39px}
+.welcomeXE_Contest{background-color:#fafafa}
+.welcomeXE_Contest article{overflow:hidden;width:1100px;margin:0 auto;padding:30px 0}
+.welcomeXE_Contest article > h1,.widget_page > h1{margin-bottom:16px;font-size:31px;line-height:48px;font-weight:normal;color:#3f51b5}
+.welcomeXE_Contest article > p,.widget_page > p{margin-bottom:23px;font-size:15px;line-height:28px;color:#000}
+.welcomeXE_Contest section{float:left;width:346px;margin-left:31px}
+.welcomeXE_Contest .i1,.welcomeXE_Contest .i4{clear:both;margin-left:0}
+.welcomeXE_Contest section h1{margin:4px 0 24px;font-size:15px;line-height:28px;font-weight:normal;color:#000}
+.welcomeXE_Contest section p{margin:0 0 38px;font-size:13px;line-height:24px;color:#777}
+/* ui_test */
+.ui_test{overflow:hidden;margin:-1% 0 0 -1%}
+.ui_test li{float:left;width:32.3%;height:200px;margin:1% 0 0 1%;background-color:#888}
+.category ul{overflow:hidden}
+.category li{float:left;margin:0 21px 30px 0;line-height:30px}
+.category li a{font-size:13px;color:#000;text-decoration:none}
+/* Color set */
+/* Default - Royal Classic */
+.category li.active a,
+.category li a:hover,
+.category li a:focus{color:#3f51b5}
+
+/* Grape Fruit */
+.color_grape_fruit .category li.active a,
+.color_grape_fruit .category li a:hover,
+.color_grape_fruit .category li a:focus{color:#ed5565}
+
+/* Hot Pink */
+.color_hot_pink .category li.active a,
+.color_hot_pink .category li a:hover,
+.color_hot_pink .category li a:focus{color:#ff4081}
+
+/* Orchid */
+.color_orchid .category li.active a,
+.color_orchid .category li a:hover,
+.color_orchid .category li a:focus{color:#ab47bc}
+
+/* Blue Jeans */
+.color_blue_jeans .category li.active a,
+.color_blue_jeans .category li a:hover,
+.color_blue_jeans .category li a:focus{color:#455ede}
+
+/* Mint  */
+.color_mint .category li.active a,
+.color_mint .category li a:hover,
+.color_mint .category li a:focus{color:#00bfa5}
+
+/* Sunflower  */
+.color_sunflower .category li.active a,
+.color_sunflower .category li a:hover,
+.color_sunflower .category li a:focus{color:#f9a825}
+
+/* Bitter Sweet */
+.color_bitter_sweet .category li.active a,
+.color_bitter_sweet .category li a:hover,
+.color_bitter_sweet .category li a:focus{color:#ff684d}
+
+/* Java Coffee */
+.color_java_coffee .category li.active a,
+.color_java_coffee .category li a:hover,
+.color_java_coffee .category li a:focus{color:#795548}
+
+/* Gray  */
+.color_gray .category li.active a,
+.color_gray .category li a:hover,
+.color_gray .category li a:focus{color:#e00032}

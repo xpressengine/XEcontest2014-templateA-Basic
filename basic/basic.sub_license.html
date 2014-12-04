@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (C) NAVER <http://www.navercorp.com> 
+ * @file basic.sub._license.html
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+-->
+<html lang="ko">
+<head>
+<!-- META -->
+<meta charset="utf-8">
+<meta name="Generator" content="XpressEngine">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=1100">
+<!-- TITLE -->
+<title>Basic Theme : XE Contest</title>
+<!-- CSS -->
+<link rel="stylesheet" href="../xe_common/xe.min.css">
+<link rel="stylesheet" href="./css/layout.basic.css">
+<link rel="stylesheet" href="./css/welcome.css">
+<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49314/XEIconv10/style.css">
+<link rel="stylesheet" href="../xe_license/license.css">
+<!--[if lt IE 8]><link rel="stylesheet" href="../xe_icon/ie7/ie7.css"><![endif]-->
+<!-- JS -->
+<!--[if lt IE 9]><script src="../xe_common/jquery-1.x.min.js"></script><![endif]-->
+<!--[if gte IE 9]><!--><script src="../xe_common/jquery.min.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../xe_common/html5.js"></script><![endif]-->
+<script src="../xe_common/xe.min.js"></script>
+<script src="./js/layout.basic.js"></script>
+<script src="./js/colorset_test.js"></script>  
+</head>
+
+<!-- [D] [Color Set] 
+         default : 클래스 없음 
+         Grape Fruit : color_grape_fruit
+         Hot Pink : color_hot_pink               
+         Orchid : color_orchid
+         Blue Jeans : color_blue_jeans
+         Mint : color_mint
+         Sunflower : color_sunflower
+         Bitter Sweet : color_bitter_sweet
+         Java Coffee : color_java_coffee
+         Gray : color_gray
+         -->
+<body>
+<!-- [D] Fixed header를 위하여 클래스 fixed_header 추가 -->    
+<div class="container fixed_header">
+	<p class="skip"><a href="#content">메뉴 건너뛰기</a></p>
+    <div class="header_wrap">
+        <header class="header">
+            <h1>
+                <a href="basic.main.html" id="siteTitle">
+                    <img src="./img/logo.png" alt="XE Basic">
+                </a>
+            </h1>
+            <div class="side">
+                <ul>
+                <li class="click">
+                    <a href="#"><i class="xe-magnifier"></i><span class="blind">검색</span></a>
+                    <div class="ly ly_search">                   
+                        <!-- SEARCH -->
+                        <form action="get" class="search">
+                            <input type="hidden" name="vid" value="">
+                            <input type="hidden" name="mid" value="">
+                            <input type="hidden" name="act" value="IS">
+                            <input type="text" name="is_keyword" value="" required placeholder="검색" title="검색어 입력">
+                            <input type="submit" value="&#xe66d">
+                        </form>
+                        <!-- /SEARCH -->
+                        <span class="edge"></span>
+                    </div>
+                </li>
+                <!-- [D]회원이 관리자 권한을 가지고 있을 경우 노출  --> 
+                <li><a href="#"><i class="xe-tool"></i><span class="blind">관리</span></a></li> 
+                <li class="hover">
+                    <!-- before_login -->
+                    <!-- <a href="#" style="display:none"><span class="blind">로그인/회원가입</span></a>
+                    <div class="ly ly_login" style="display:none">
+                        <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div> -->
+                    <!-- /before_login -->
+                    
+                    <!-- after_login -->
+                    <!-- [D] 프로필 이미지를 등록하지 않았을 경우 기본 이미지 노출, alt 속성에는 프로필명 적용 -->  
+                    <a href="#" class="login_after"><img src="./img/ico_default.jpg" alt="OO님 프로필"></a>
+                    <div class="ly ly_login">
+                        <ul>
+                        <li><a href="#">회원정보 보기</a></li>
+                        <li><a href="#">스크랩 보기</a></li>
+                        <li><a href="#">저장함 보기</a></li>
+                        <li><a href="#">작성 글 보기</a></li>
+                        <li><a href="#">친구 보기</a></li>
+                        <li><a href="#">쪽지함 보기</a></li>
+                        <li class="logout"><a href="#">로그아웃</a></li>
+                        </ul>
+                        <span class="edge"></span>
+                    </div>
+                    <!-- /after_login -->
+                </li>    
+                </ul>
+                
+            </div>
+            <!-- GNB -->
+            <nav class="gnb" id="gnb">
+                <ul>
+                <li><a href="basic.main.html">HOME</a></li>
+                <li>
+                    <a href="#">컬러테마</a>
+                    <ul class="depth2">
+                    <li><a href="#">Royal Classic</a></li>
+                    <li><a href="#">Grape Fruit</a></li>
+                    <li><a href="#">Hot Pink</a></li>
+                    <li><a href="#">Orchid</a></li>
+                    <li><a href="#">Blue Jeans</a></li>
+                    <li><a href="#">Mint</a></li>
+                    <li><a href="#">Sunflower</a></li>
+                    <li><a href="#">Java Coffee</a></li>
+                    <li><a href="#">Gray</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">레이아웃</a>
+                    <ul class="depth2">
+                    <li><a href="basic.main.html">메인 레이아웃</a></li>
+                    <!-- [D]3depth 노출시 li에 클래스 divide 추가 및 2depth 메뉴명 <a>엘리멘트를 <span>엘리먼트로 변경 -->
+                    <li class="divide">
+                        <span>서브 레이아웃</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_full.html">풀컨텐츠</a></li>
+                        <li><a href="basic.sub.html">2단 좌측 LNB</a></li>
+                        <li><a href="basic.sub_right.html">2단 우측 LNB</a></li>
+                        </ul>
+                    </li>
+                    <li class="divide">
+                        <span>서브 타이틀</span>
+                        <ul class="depth3">
+                        <li><a href="basic.sub_banner.html">빵조각 - 배너형</a></li>
+                        <li><a href="basic.sub_default.html">빵조각 - 기본형</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">로그인</a>
+                    <ul class="depth2">
+                    <li><a href="basic.login.html">로그인 일반</a></li>
+                    <li><a href="basic.login2.html">로그인 모달</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="basic.message.html">메시지</a>
+                </li>    
+                <li>
+                    <a href="basic.sub_license.html">라이선스</a>
+                </li>
+                </ul>
+            </nav>
+		    <!-- /GNB -->
+        </header>
+    </div>
+	
+	<!-- VISUAL  -->
+	<!-- [D] 타이틀 영역에 백그라운 이미지 적용시 클래스 sub_img 추가 -->
+	<div class="visual sub">
+	    <!-- [D] 백그라운 이미지 적용 (디폴트 이미지 사이즈 1440x160) -->
+	    <span class="bg_img" style="background-image:url('./img/subtitle.png')"></span>
+        <span class="mask"></span>
+        <div class="sub_title">
+            <h1>라이선스</h1>
+            <div class="page_location">
+                <p>Yor are here:</p>
+                <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">라이선스</a></li>
+                </ul>
+            </div>
+        </div>    
+	</div>
+	<!-- /VISUAL -->
+    
+    <!-- [D] 좌측 LNB(기본) : body sub
+                          우측 LNB : body sub right
+             LNB 미노출 : body sub no_lnb  -->
+	<div class="body sub">
+	    
+		<!-- LNB -->
+        <nav class="lnb">
+            <div class="top_thumb">
+                <img src="./img/img_top.png" width="222" height="200" alt="">
+            </div>         
+            <ul>
+            <li><a href="#">메인 레이아웃</a></li>
+            <!-- [D]3depth 노출시 li에 클래스 divide 추가 -->
+            <li class="divide">
+                <!-- [D]2depth 메뉴명은 사용자 설정에 따라 노출/미노출 가능 -->
+                <span>서브 레이아웃</span>
+                <ul>
+                <li><a href="#">풀컨텐츠</a></li>
+                <li class="active"><a href="#">2단 좌측 LNB</a></li>
+                <li><a href="#">2단 우측 LNB</a></li>                    
+                </ul>               
+            </li>
+            <li class="divide">
+                <span>서브 타이틀</span>
+                <ul>
+                <li><a href="#">빵조각 - 배너형</a></li>
+                <li><a href="#">빵조각 - 기본형</a></li>                    
+                </ul> 
+            </li>           
+            </ul>       
+        </nav>      
+        <!-- /LNB -->
+		
+		<!-- CONTENT -->
+		<div class="content" id="content">
+			<div class="license_content">
+				<section class="lcs_spot">
+					<h2 class="lcs_tit">라이선스 <span>(license)</span></h2>
+					<p class="tit_txt">제공된 웹 템플릿은 아래의 라이선스를 준수해야 합니다.</p>
+					<p class="tit_txt">아래 라이선스는 템플릿 이용자의 저작물에 적용하여, 이용자의 권리 또한 보장합니다.</p>
+					<ul class="lcs_lst_area">
+						<li class="lcs_lst">
+							<dl>
+								<dt>IMAGES &amp DESIGN</dt>
+								<dd class="lst_name"><a href="#">CCL</a></dd>
+								<dd class="lst_txt">저작 출처(xpressengine.com) 표기, 수정가능, <br>영리 목적 이용 가능, 동일조건변경허락</dd>
+							</dl>
+							<a href="#lcs_ccl" class="move_btn"><i class="xe-down-circle"></i></a>
+						</li>
+						<li class="lcs_lst">
+							<dl>
+								<dt>HTML, CSS &amp JS</dt>
+								<dd class="lst_name"><a href="#">LGPL</a></dd>
+								<dd class="lst_txt">마크업 소스코드, 오픈소스 SW라이선스 LGPL를 적용</dd>
+							</dl>
+							<a href="#lcs_lgpl" class="move_btn"><i class="xe-down-circle"></i></a>
+						</li>
+						<li class="lcs_lst">
+							<dl>
+								<dt>FONT</dt>
+								<dd class="lst_name"><a href="#">OFL</a></dd>
+								<dd class="lst_txt">(SIL OPEN FONT LICENSE) 허가된 폰트의 사용, 연구, <br>수정 및 재 배포를 자유롭게 허락</dd>
+							</dl>
+							<a href="#lcs_ofl" class="move_btn"><i class="xe-down-circle"></i></a>
+						</li>
+					</ul>
+				</section>
+				<section id="lcs_ccl" class="lcs_ccl">
+					<h3 class="lcs_tit v2">CCL <span>(Creative Commons License)</span></h3>
+					<p class="tit_txt">템플릿의 이미지를 포함한 모든 디자인 저작물은 <a href="http://www.cckorea.org/xe/?mid=ccl" target="_blank">CCL</a>을 준수해야 합니다.</p>
+					<p class="tit_txt"><a href="http://www.navercorp.com" target="_blank">&copy;NAVER</a>에 의해 작성된 XEContest Template은(는) 크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0 국제 라이선스에 따라 이용할 수 있습니다.</p>
+					<p class="tit_txt">이 라이선스의 범위 이외의 이용허락을 얻기 위해서는 <a href="http://www.xpressengine.com" target="_blank">http://www.xpressengine.com</a> 을 참조하십시오.</p>
+					<ul class="ccl_lst_area">
+						<li class="ccl_lst">
+							<dl>
+								<dt>이용자는 다음의 권리를 갖습니다.</dt>
+								<dd>공유 - 복제, 배포, 전시, 공연 및 공중송신 (포맷 변경도 포함)</dd>
+								<dd>변경 - 리믹스, 변형, 2차적 저작물의 작성</dd>
+								<dd>영리목적으로도 이용이 가능합니다.</dd>
+								<dd>아래 조건을 준수하는 한 이 라이선스는 취소되거나 실효되지 않습니다.</dd>
+							</dl>
+						</li>
+						<li class="ccl_lst2">
+							<dl>
+								<dt>다음과 같은 조건을 따라야 합니다.</dt>
+								<dd>
+									<span class="ccl_lst2_img"><img src="../xe_license/img/img_by.png" width="56" height="56" alt="저작자 표시 아이콘"></span>
+									<div class="ccl_lst2_txt">
+										<strong>저작자 표시</strong>
+										<span>적절한 출처와, 해당 라이센스 링크를 표시하고, 변경이 있는 경우 공지해야 합니다. 합리적인 방식으로 이렇게 하면 되지만, 이용 허락권자가 귀하에게 권리를 부여한다거나 귀하의 사용을 허가한다는 내용을 나타내서는 안 됩니다.</span>
+										<strong class="txt_en">Attribution</strong>
+										<span>You must give appropriate credit, provide a link to the license, and indicate if changes were made. <br>You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</span>
+									</div>
+								</dd>
+								<dd>
+									<span class="ccl_lst2_img"><img src="../xe_license/img/img_sa.png" width="56" height="56" alt="저작자 표시 아이콘"></span>
+									<div class="ccl_lst2_txt">
+										<strong>동일조건변경허락</strong>
+										<span>이 저작물을 리믹스, 변형하거나 2차적 저작물을 작성하고 그 결과물을 공유할 경우에는 원 저작물과 동일한 조건의 CCL을 적용하여야 합니다.</span>
+										<strong class="txt_en">ShareAlike</strong>
+										<span>If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</span>
+									</div>
+								</dd>
+								<dd>
+									<div class="ccl_lst2_txt">
+										<strong>추가제한금지</strong>
+										<span>이용자는 이 라이선스로 허용된 행위를 제한하는 법적 조건이나 기술적 조치를 부가해서는 안 됩니다.</span>
+										<strong class="txt_en">No additional restrictions</strong>
+										<span>You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</span>
+									</div>
+								</dd>
+							</dl>
+						</li>
+						<li class="ccl_lst3">
+							<dl>
+								<dt>CCL 적용하는 방법은 아래와 같습니다.</dt>
+								<dd>아래 이미지를 다운 받아 CC라이선스를 적용하거나, <a href="http://creativecommons.org/choose/" target="_blank" class="lcs_generator">CC라이선스 생성기(license generator)</a>를 사용하여 페이지에 CCL을 적용할 수 있습니다.</dd>
+							</dl>
+							<ul>
+								<li class="ccbysa">
+									<strong class="ccl_ico">ccbysa</strong>
+									<a href="../xe_license/download/CCBYSA.zip" class="btn_ccl_ico"><span>DOWNLOAD<span></a>
+								</li>
+								<li class="ccbysa_d">
+									<strong class="ccl_ico">ccbysa</strong>
+									<a href="../xe_license/download/CCBYSA_D.zip" class="btn_ccl_ico"><span>DOWNLOAD<span></a>
+								</li>
+								<li class="ccbysa_l">
+									<strong class="ccl_ico">ccbysa</strong>
+									<a href="../xe_license/download/CCBYSA_L.zip" class="btn_ccl_ico"><span>DOWNLOAD<span></a>
+								</li>
+								<li class="ccbysa_w">
+									<strong class="ccl_ico">ccbysa</strong>
+									<a href="../xe_license/download/CCBYSA_W.zip" class="btn_ccl_ico"><span>DOWNLOAD<span></a>
+								</li>
+								<li class="ccbysa_all">
+									<strong class="ccl_ico">All Icons Zip</strong>
+									<a href="../xe_license/download/CCBYSA_btn.zip" class="btn_ccl_ico"><span>DOWNLOAD<span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section id="lcs_lgpl" class="lcs_lgpl">
+					<h3 class="lcs_tit v2">LGPL <span>(Lesser General Public License)</span></h3>
+					<p class="tit_txt">템플릿의 개발소스코드는 <a href="http://opensource.org/licenses/lgpl-2.1.php" target="_blank">LGPL</a>을 준수하여야 합니다.</p>
+					<ul class="ccl_lst_area">
+						<li class="ccl_lst">
+							<dl>
+								<dt>오픈소스SW 라이선스, LGPL v2의 주요내용은 다음과 같습니다.</dt>
+								<dd>복제, 배포, 수정의 권한 허용</dd>
+								<dd>배포시 라이선스 사본 첨부	</dd>
+								<dd>저작권고지시사항 또는 Attribution 고지사항유지</dd>
+								<dd>배포시 소스코드 제공의무(Reciprocity)와 범위 </dd>
+								<dd>조합저작물(Lager Work)작성 및 타라이선스 배포 허용</dd>
+								<dd>수정 시 수정내용 고지</dd>
+								<dd>명시적 특허라이선스의 허용</dd>
+								<dd>라이선시가 특허소송 제기시 라이선스 종료</dd>
+								<dd>이름, 상표, 상호에 대한 사용제한</dd>
+								<dd>보증의 부인</dd>
+								<dd>책임의 제한</dd>
+							</dl>
+						</li>
+						<li class="ccl_lst v2">
+							<dl>
+								<dt>소스코드에 적용된 LGPL 내용은 아래와 같습니다.</dt>
+								<dd>Copyright (C) NAVER http://www.navercorp.com <br>@author NAVER (developers@xpressengine.com)</dd>
+								<dd>Find and create module object by mif, act in Request Argument <br>Set module information</dd>
+								<dd>XE is an opensource and being developed in the opensource project. <br>For more information, please see the link below. <br>Official website: http://www.xpressengine.com <br>Offcial Repository: https://github.com/xpressengine/xe-core</dd>
+								<dd>&ldquo;XpressEngine (XE)&rdquo; is free software; you can redistribute it and/or <br>modify it under the terms of the GNU Lesser General Public <br>License as published by the Free Software Foundation; either <br>version 2.1 of the License, or (at your option) any later version.</dd>
+								<dd>This library is distributed in the hope that it will be useful, <br>but WITHOUT ANY WARRANTY; without even the implied warranty of <br>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU <br>Lesser General Public License for more details.</dd>
+								<dd>You should have received a copy of the GNU Lesser General Public <br>License along with this library; if not, write to the Free Software <br>Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA</dd>
+							</dl>
+						</li>
+					</ul>
+				</section>
+				<section id="lcs_ofl" class="lcs_ofl">
+					<h3 class="lcs_tit v2">SIL OPEN FONT LICENSE</span></h3>
+					<p class="tit_txt">템플릿에는 네이버에서 제공하는 나눔글꼴이 적용되어 있습니다. <br>나눔글꼴은 <a href="http://opensource.org/licenses/openfont.html" target="_blank">OFL(Open Font License)</a>을(를) 준수하여야 합니다.</p>
+					<ul class="ccl_lst_area">
+						<li class="ccl_lst v2">
+							<dl>
+								<dt>네이버 나눔글꼴의 OFL 주요 내용은 다음과 같습니다.</dt>
+								<dd>네이버 나눔글꼴의 지적 재산권은 네이버와 네이버문화재단에 있습니다. <br>네이버 나눔글꼴은 개인 및 기업 사용자를 포함한 모든 사용자에게  무료로 제공되며 자유롭게 수정하고 재배포하실 수 있습니다. 단, 글꼴 자체를 유료로 판매하는 것은 금지하며 네이버 나눔글꼴은 본 저작권 안내와 라이선스 전문을 포함해서 다른 소프트웨어와 번들하거나 재배포 또는 판매가 가능합니다.</dd>
+								<dd>네이버 나눔글꼴을 사용한 인쇄물, 광고물(온라인 포함)의 이미지는 나눔글꼴 프로모션을 위해 활용될 수 있습니다. <br>이를 원치 않는 사용자는 언제든지 당사에 요청하실 수 있습니다.</dd>
+							</dl>
+						</li>
+						<li class="ccl_lst v2">
+							<dl>
+								<dt>나눔글꼴 라이선스 전문은 아래와 같습니다.</dt>
+								<dd>Copyright (c) 2010, NAVER Corporation (http://www.nhncorp.com),<br><br>
+								with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco, NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver NanumBarunGothic, <br>
+								This Font Software is licensed under the SIL Open Font License, Version 1.1. <br>
+								This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL <br>
+								SIL OPEN FONT LICENSE <br>
+								Version 1.1 - 26 February 2007<br><br>
+								SIL 오픈 폰트 라이선스<br>
+								버전 1.1 (2007년 2월 26일)</dd>
+								<dd>
+									<strong>DEFINITIONS</strong>
+									<p>&ldquo;Font Software&ldquo; refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation. <br><br>
+									&ldquo;Reserved Font Name&ldquo; refers to any names specified as such after the copyright statement(s). <br><br>
+									&ldquo;Original Version&ldquo; refers to the collection of Font Software components as distributed by the Copyright Holder(s). <br><br>
+									&ldquo;Modified Version&ldquo; refers to any derivative made by adding to, deleting, or substituting in part or in whole any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.‘ <br>
+									&ldquo;Author&ldquo; refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.</p>
+								</dd>
+								<dd>
+									<strong>PREAMBLE</strong> 
+									<p>The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework  in which fonts may be shared and improved in partnership with others. <br><br>
+									The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. <br><br>
+									The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.</p>
+								</dd>
+								<dd>
+									<strong>PERMISSION &amp; CONDITIONS </strong>
+									<div>
+										<p>Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:</p>
+										<ul class="ofl_txt_lst">
+											<li>1) Neither the Font Software nor any of its individual components,in Original or Modified Versions, may be sold by itself.</li>
+											<li>2) Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user. </li>
+											<li>3) No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.</li>
+											<li>4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) of the Copyright Holder(s) and the Author(s) or with their explicit written permission.</li>
+											<li>5) The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.</li>
+										</ul>
+									</div>
+								</dd>
+								<dd>
+									<strong>TERMINATION</strong>
+									<p>This license becomes null and void if any of the above conditions are not met.</p>
+								</dd>
+								<dd>
+									<strong>DISCLAIMER </strong>
+									<p>THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</p>
+								</dd>
+							</dl>
+						</li>
+					</ul>					
+				</section>
+				<section id="lcs_Copyright" class="lcs_Copyright">
+					<h3 class="lcs_tit v2">Copyright</span></h3>
+					<p class="tit_txt">Copyright (c) <a href="http://www.navercorp.com" target="_blank">NAVER Corp.</a> Supported by <a href="http://developer.naver.com" target="_blank">D2 Program.</a></p>
+				</section>
+			</div>
+		</div>
+		<!-- /CONTENT -->
+	</div>
+
+    <div class="footer_wrap">
+        <footer class="footer">
+            <div class="f_info">
+                <p class="f_logo"><a href="#"><img src="./img/f_logo.png" alt="XE Basic"></a></p>
+                <ul class="lst_sns">
+                <li><a href="#"><i class="xe-facebook"></i><span class="blind">Facebook</span></a></li>
+                <li><a href="#"><i class="xe-twitter"></i><span class="blind">Twitter</span></a></li>
+                <li><a href="#"><i class="xe-linkedin"></i><span class="blind">Linkedin</span></a></li>
+                <li><a href="#"><i class="xe-github"></i><span class="blind">Github</span></a></li>
+                <li><a href="#"><i class="xe-social-rssfeed"></i><span class="blind">RSS Feed</span></a></li>
+                <li><a href="#"><i class="xe-google-plus"></i><span class="blind">Google plus</span></a></li>
+                </ul>
+                <p class="site_name">XpressEngine Contest Online<br><a href="#">www.xpressengine.com</a></p>
+                <p class="copyright">Copyright @ <a href="#">NAVER Corp.</a><br>Supported by <a href="#">D2 Program</a>.</p>
+            </div>
+            <div class="f_info2">
+                <div class="site_map">
+                    <ul>
+                    <li>
+                        <a href="#">컬러테마</a>
+                        <ul>
+                        <li><a href="#">Royal Classic</a></li>
+                        <li><a href="#">Grape Fruit</a></li>
+                        <li><a href="#">Hot Pink</a></li>
+                        <li><a href="#">Orchid</a></li>
+                        <li><a href="#">Blue Jeans</a></li>
+                        <li><a href="#">Mint</a></li>
+                        <li><a href="#">Sunflower</a></li>
+                        <li><a href="#">Java Coffee</a></li>
+                        <li><a href="#">Gray</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">레이아웃</a>
+                        <ul>
+                        <li><a href="#">메인 레이아웃</a></li>
+                        <li><a href="#">서브 레이아웃</a></li>
+                        <li><a href="#">서브 타이틀</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">로그인</a>
+                        <ul>
+                        <li><a href="#">로그인 일반</a></li>
+                        <li><a href="#">로그인 모달</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">메시지</a>
+                    </li>
+                    <li>
+                        <a href="#">라이선스</a>
+                    </li>
+                    <!-- [D] 6번째 메뉴에 클래스 clear 추가 -->
+                    <li class="clear">
+                        <a href="#">6번째 메뉴(예시)</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="f_more_info">
+                    <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li><a href="#">운영규칙</a></li>
+                    <li><a href="#">이메일찾기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<a href="#" class="btn_top"><i class="xe-angle-up"><span class="blind">위로가기</span></i></a>
+</body>
+</html>

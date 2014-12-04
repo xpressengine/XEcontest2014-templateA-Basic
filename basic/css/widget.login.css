@@ -1,0 +1,70 @@
+@charset "utf-8";
+/**
+ * Copyright (C) NAVER <http://www.navercorp.com>
+ * @file widget.login.css
+ * @author NAVER (developers@xpressengine.com)
+ *
+ * Find and create module object by mif, act in Request Argument
+ * Set module information
+ *
+ * @mainpage XpressEngine
+ * @section intro introduction
+ *
+ * XE is an opensource and being developed in the opensource project.
+ * For more information, please see the link below.
+ * - Official website: http://www.xpressengine.com
+ * - Offcial Repository: https://github.com/xpressengine/xe-core
+ * 
+ * "XpressEngine (XE)" is free software; you can redistribute it and/or 
+ * modify it under the terms of the GNU Lesser General Public 
+ * License as published by the Free Software Foundation; either 
+ * version 2.1 of the License, or (at your option) any later version. 
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ **/
+
+.login_widget{position:fixed;top:0;left:0;z-index:999999;width:100%;height:100%;font-size:13px}
+.login_widget .btn_close{position:absolute;top:-31px;right:0;width:26px;height:26px;font-size:26px;line-height:26px;text-align:center;color:#fafafa}
+.login_widget .blind{{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}}
+.login_widget .ly_dimmed{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=50);opacity:.5}
+.login_widget input{font-size:13px}
+.login_widget .signin{position:absolute;top:50%;margin-top:-350px;left:50%;width:400px;margin-left:-200px;background-color:#fafafa}
+.login_widget .signin>.login-header{padding:32px 40px}
+.login_widget .signin>.login-header>h1{font-size:16px;line-height:1.4;font-weight:600;color:#666;text-align:center}
+.login_widget .signin>.login-body{padding:0 40px}
+.login_widget .signin>.login-footer{padding:11px 0 34px;margin:20px 40px 0;text-align:center;border-top:1px solid #ccc;color:#888}
+.login_widget .signin>.login-footer>a{text-decoration:none;font-size:12px;color:#888}
+.login_widget .signin>.login-footer>a:hover,
+.login_widget .signin>.login-footer>a:active,
+.login_widget .signin>.login-footer>a:focus{text-decoration:underline}
+.login_widget .signin>.login-footer>.bar{display:inline-block;margin:0 8px}
+.login_widget .signin .control-group{position:relative;padding:0;margin:0;clear:both}
+.login_widget .signin .control-group:before{content:"";display:block;clear:both}
+.login_widget .signin form{margin:0}
+.login_widget .signin fieldset{margin:0}
+.login_widget .signin label{cursor:pointer;display:inline-block;margin:-1px 0 0;color:#333;line-height:14px}
+.login_widget .signin input[type="text"],
+.login_widget .signin input[type="email"],
+.login_widget .signin input[type="password"]{font-size:14px;width:100%;height:48px;margin-bottom:10px;padding:12px 6px 12px 10px;border:1px solid #ccc;background-color:#fff;line-height:14px;box-sizing:border-box}
+.login_widget .signin input[type="checkbox"]{margin:0 6px 0 0;width:13px;height:13px;vertical-align:top}
+.login_widget .signin input[type="submit"]{font-size:15px;color:#fafafa;border:1px solid #3f5ac9;background-color:#455ede;width:100%;margin:19px 0 0 0;padding:14px 0px;cursor:pointer}
+.login_widget .signin input[type="email"]:focus,
+.login_widget .signin input[type="password"]:focus,
+.login_widget .signin input[type="text"]:focus{border:1px solid #4669cd}
+.login_widget .signin .error{margin:1px 0 13px;background:none;color:#f00}
+.login_widget .signin #warning>p{margin:9px 0 -7px;color:#888;font-size:12px;line-height:18px}
+.login_widget .signin .login-social{padding-bottom:8px}
+.login_widget .signin .login-social p{height:16px;padding:10px 0;font-size:13px;font-weight:bold;color:#888;text-align:center;line-height:16px}
+.login_widget .signin .login-social a{display:block;position:relative;height:48px;margin-bottom:8px;line-height:48px;text-align:center;font-size:15px;color:#fafafa}
+.login_widget .signin .login-social i{position:absolute;left:9px;top:7px;width:34px;height:34px;font-size:32px;line-height:34px;color#rrr}
+.login_widget .signin .login-social .lg-naver{border:1px solid #18b014;background-color:#2bcc09}
+.login_widget .signin .login-social .lg-facebook{border:1px solid #465f91;background-color:#4d67a4}
+.login_widget .signin .login-social .lg-twitter{margin-bottom:0;border:1px solid #269cbc;background-color:#26a7df}
