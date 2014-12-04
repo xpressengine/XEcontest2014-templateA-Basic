@@ -15,5 +15,5 @@ http://contest.xpressengine.com/templates/basic/basic.main.html
 | 항목 | 라이선스 | 내용 |
 | ------------ | ------------ | ----- |
 | IMAGES & DESIGN | CCL          | 저작 출처(xpressengine.com) 표기, 수정가능, 영리 목적 이용 가능, 동일조건변경허락   |
-|  html/css/js    | LGPL         | 마크업 소스코드에는 오픈소스SW라이선스 LGPL를 적용합니다.   |
-| 폰트            | OFL          | 영리 목적이 아닌 한, 사용되는 폰트의 사용, 연구, 수정 및 재배포를 자유롭게 허락합니다.   |
+|  HTML, CSS & JS    | LGPL         | 마크업 소스코드에는 오픈소스SW라이선스 LGPL를 적용합니다.   |
+| FONT            | OFL          | 영리 목적이 아닌 한, 사용되는 폰트의 사용, 연구, 수정 및 재배포를 자유롭게 허락합니다.   |
