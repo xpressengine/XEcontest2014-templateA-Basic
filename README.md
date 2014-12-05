@@ -6,7 +6,9 @@ XpressEngine에서 제공하는 템플릿A는 종이와 카드를 메타포로 �
 디자인과 마크업까지 함께 제공되어 바로 레이아웃 또는 스킨 제작에 활용하여 출품할 수 있습니다.
 
 ## View page
+미리보기 페이지를 참고하여 다운받기 전 사용해 볼 수 있습니다.
 http://contest.xpressengine.com/templates/basic/basic.main.html
+
 
 ## License
 제공된 웹 템플릿은 아래의 라이선스를 준수해야 합니다.
